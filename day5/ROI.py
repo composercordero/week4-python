@@ -297,6 +297,3 @@ def main():
             break
 
 main()
-
-# Missing Edit -> question, recall of the function selected
-# missing view which is the view function
