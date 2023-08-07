@@ -105,10 +105,10 @@ class roi_calc():
         return prop.total_monthly_expenses
 
     def investment(self):
-        prop.down_payment = self.question('down payment')
-        prop.closing_costs = self.question('closing costs')
-        prop.rehab_budget = self.question('rehab budget')
-        prop.miscellaneous = self.question('miscellaneous')
+        prop.down_payment = self.question('down payment', '')
+        prop.closing_costs = self.question('closing costs', '')
+        prop.rehab_budget = self.question('rehab budget', '')
+        prop.miscellaneous = self.question('miscellaneous', '')
 
         prop.total_investment = int(prop.down_payment) + int(prop.closing_costs)\
         + int(prop.rehab_budget) + int(prop.miscellaneous)
@@ -182,10 +182,10 @@ Closing Costs: ${prop.closing_costs}
 Rehab Budget: ${prop.rehab_budget}
 Miscellaneous: ${prop.miscellaneous}""")
 
-    def question(self, field):
-        question = (input(f'What is your monthly {field}? '))
+    def question(self, field, monthly = 'monthly'):
+        question = (input(f'What is your {monthly} {field}? '))
         while not re.match('^[\d]*$', question):
-            question = input(f'Please, input a valid number for your monthly {field}: ')
+            question = input(f'Please, input a valid number for your {field}: ')
         return question
 
 class Property():
